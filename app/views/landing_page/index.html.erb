@@ -2,8 +2,9 @@
 	<div>
 		<h3 class="white-text">Welcome, <%= current_user.email%>!</h3>
 	</div>
-	<div class="row">
-		<div class="col s12 m9">
+	
+	<div>
+			<%= link_to 'New Bucket List', new_list_path %>
 			<br />
 			<div>
 				<%= link_to 'New Bucket List', new_list_path, class: 'waves-effect waves-light btn modal-trigger blue-text text-lighten-4' %>
@@ -84,4 +85,12 @@
 	    <%= link_to 'Make A New List', new_list_path, class: "modal-action close waves-effect waves-green btn right" %>
 	  </div>
 	</div>
+		  <%= render(partial: 'suggestions') %>
+	</div>
+
+	<div class="row">
+		<%= render(partial: 'cardsrow')  %>
+		<%= render(partial: 'feed') %>
+	</div>	
+	<%= will_paginate @lists %>
 </div>
